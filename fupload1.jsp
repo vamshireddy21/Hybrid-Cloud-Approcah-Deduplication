@@ -1,0 +1,50 @@
+<%@ page import="databaseconnection.*"%>
+<%@ page import="Hash.HMAC_SHA"%>
+<%@ page import="java.sql.*"%>
+<%
+String uid=(String)session.getAttribute("uid");
+String fid=request.getParameter("fid");
+String fnm=request.getParameter("fnm");
+String fdata=request.getParameter("file");
+String ckey=(String)session.getAttribute("ckey");
+System.out.println("ckey="+ckey);
+String token=request.getParameter("token");
+String pkey=request.getParameter("pkey");
+byte b1[]=null;
+try{
+Connection con=databasecon.getconnection();
+Statement st2=con.createStatement();
+Statement st4=con.createStatement();
+ResultSet i2=st4.executeQuery("select *from filedata");
+if(i2.next())
+	{
+ b1=i2.getBytes(3);
+	}
+PreparedStatement p=con.prepareStatement("insert into servicecloud values(?,?,?,?,AES_ENCRYPT(?,'"+pkey+"'),?,?)");
+p.setString(1,uid);
+p.setString(2,fid);
+p.setString(3,fnm);
+p.setBytes(4,b1);
+p.setString(5,ckey);
+p.setString(6,token);
+p.setString(7,pkey);
+int i1=p.executeUpdate();
+//st2.executeUpdate("delete from treq where uid='"+uid+"'");
+//st2.executeUpdate("delete from token where uid='"+uid+"'");
+st2.executeUpdate("delete from treq");
+st2.executeUpdate("delete from token");
+st2.executeUpdate("delete from filedata");
+st2.executeUpdate("delete from duplcheck");
+System.out.println("i1="+i1);
+if(i1>0){
+response.sendRedirect("treq.jsp?UploadSuccessfully");
+	}
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+%>
+
+
+

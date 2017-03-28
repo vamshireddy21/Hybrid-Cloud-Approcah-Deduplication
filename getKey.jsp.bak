@@ -1,0 +1,41 @@
+<%@ page import="databaseconnection.*"%>
+<%@ page import="java.sql.*"%>
+<%! String token=null,status=null,pkey=null;%>
+<%@ include file="Ownerheader.jsp"%>
+<%
+
+Connection con=databasecon.getconnection();
+Statement st=con.createStatement();
+ResultSet i=st.executeQuery("select token,status from token where uid='"+(String)session.getAttribute("uid")+"'");
+if(i.next())
+{
+	token=i.getString(1);
+	status=i.getString(2);
+}
+String u=(String)session.getAttribute("uid");
+
+
+Statement st3=con.createStatement();
+ResultSet rs=st3.executeQuery("select pkey from servicecloud where userid='"+u+"'");
+if(rs.next())
+{
+	pkey=rs.getString(1);
+}
+
+%><br>
+<form action="verify.jsp">
+<table align="center" cellpadding="5" cellspacing="12">
+<tr><td><strong><h4><i> <p class="blink"><font size="3" color="red">Proof of Ownership Protocol:</font></u></strong></i></h4>
+<tr>
+	<td><strong><font size="3" color="3300cc">UserID</strong></td><td><input type="text" name="uid" value=<%=uid%>></td>
+</tr>
+
+<tr>
+	<td><strong><font size="3" color="red">Privilege Key</strong></td><td><input type="password" name="pkey" value=<%=pkey%>></td></tr></table>
+	<table align="center">
+	<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+		<td><input type="image" src="images/verif1.png" name="image" width="150" height="30"></td>
+	</tr>
+	</table>
+</table><br><br><br>
+<%@ include file="Ownerfooter.jsp"%>

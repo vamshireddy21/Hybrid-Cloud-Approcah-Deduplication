@@ -1,0 +1,3 @@
+SQL was initially developed at IBM by Donald D. Chamberlin and Raymond F. Boyce in the early 1970s.[13] This version, initially called SEQUEL 
+(Structured English Query Language), was designed to manipulate and retrieve data stored in IBM's original quasi-relational database management 
+h were commercially available in 1979, 1981, and 1

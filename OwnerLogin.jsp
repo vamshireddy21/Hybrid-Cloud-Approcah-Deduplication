@@ -1,0 +1,59 @@
+<head>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+$(function() {
+    $("#imgSubmitButton").click(function () {
+        $("#formName").submit();
+    });
+}); 
+</script>
+</head>
+<%@ include file="header.jsp"%>
+
+<table >
+<tr><td width="30%"><img src="images/olg2.png" width=200 height=200>	</td>
+<td width="%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<% if(request.getParameter("msg")!=null)
+{%>
+<p class="blink">	<font color="red" size=2 name="times new roman"><b>Incorrect  UserID or Password	</p></font>
+<%
+}%>
+	<form action="OwnerCheck.jsp" id="formName" name="formName">
+	
+		<div >
+		<table align="center">
+		     
+				<tr><td><strong><font color="ff0033009966">UserID* <br><input type="text" name="uid" required/><br></td></tr>
+ 
+			 <tr><td><strong><font color="ff0033009900">Password* <br><input type="password" name="pwd" required/><br><br></td></tr>
+			
+
+		<tr><td ><input type="image" src="images/lgn.jpg" name="image" width="150" height="30"><center></center></td></tr>
+  
+		</div>
+	</form></td></table>
+	<td>				
+ 
+
+
+</td></table>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="DataOwner.jsp"><img src="images/reg1.png" width=200 height=100></a></td>
+
+	<br><br>
+	</div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize"> <a href="index.html"><img src="images/logo_bg.jpg" width="237" height="68" alt="" class="flogo" /></a>
+      <div class="drf">
+        <ul class="fmenu">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="clr"></div>
+        <p class="lf">&copy; Copyright 2014-2015, D & D by  <a href="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcloudtechnologiespro&width&height=590&colorscheme=light&show_faces=true&header=true&stream=true&show_border=true" target="_blank">Cloud Technologies</a></p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</html>
